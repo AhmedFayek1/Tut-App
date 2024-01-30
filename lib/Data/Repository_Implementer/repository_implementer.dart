@@ -68,6 +68,7 @@ class RepositoryImpl implements Repository {
       RegisterRequest registerRequest) async {
     if (await _connectionCheckerImpl.hasConnection) {
       try {
+
         final response = await remoteDataSourceImpl.register(registerRequest);
         if (response.status == ApiInternalStatus.SUCCESS) {
           return Right(response.toDomain());
